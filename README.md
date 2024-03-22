@@ -11,3 +11,5 @@
  - http://localhost:3000/crawl/chickin
    [chickin.id](https://chickin.id)
 
+## Notes
+   Create `.env` file or rename `.env.example` to `.env`

@@ -47,13 +47,13 @@ func main() {
 		// Menutup response body setelah selesai digunakan
 		defer resp.Body.Close()
 
-		err = os.MkdirAll(hostName, os.ModePerm)
+		err = os.MkdirAll("website/"+hostName, os.ModePerm)
 		if err != nil {
 			return c.Status(http.StatusInternalServerError).SendString("Error saat membuat folder")
 		}
 
 		// Menyimpan isi HTML ke dalam file
-		fileName := fmt.Sprintf("%s/result.html", hostName)
+		fileName := fmt.Sprintf("website/%s/result.html", hostName)
 		err = os.WriteFile(fileName, htmlContent, 0644)
 		if err != nil {
 			return c.Status(http.StatusInternalServerError).SendString("Error saat menyimpan hasil ke file")

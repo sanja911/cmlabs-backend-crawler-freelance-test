@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/sanja911/cmlabs-backend-crawler-freelance-test/configs"
 )
 
 func main() {
@@ -64,22 +65,22 @@ func main() {
 
 	// Handler untuk melakukan crawling dan menyimpan hasilnya dalam file HTML untuk website pertama
 	app.Get("/crawl/cmlabs", func(c *fiber.Ctx) error {
-		url := "https://cmlabs.co"
+		url := configs.CmlabsURI()
 		return crawlAndSaveHTML(c, url)
 	})
 
 	// Handler untuk melakukan crawling dan menyimpan hasilnya dalam file HTML untuk website kedua
 	app.Get("/crawl/sequence", func(c *fiber.Ctx) error {
-		url := "https://sequence.day"
+		url := configs.SequenceDay()
 		return crawlAndSaveHTML(c, url)
 	})
 
 	// Handler untuk melakukan crawling dan menyimpan hasilnya dalam file HTML untuk website ketiga (masukkan website ke tautan yang sesuai)
 	app.Get("/crawl/chickin", func(c *fiber.Ctx) error {
-		url := "https://chickin.id/"
+		url := configs.Chickin()
 		return crawlAndSaveHTML(c, url)
 	})
 
 	// Jalankan server pada port 3000
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(configs.PORT()))
 }

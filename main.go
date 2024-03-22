@@ -75,8 +75,8 @@ func main() {
 	})
 
 	// Handler untuk melakukan crawling dan menyimpan hasilnya dalam file HTML untuk website ketiga (masukkan website ke tautan yang sesuai)
-	app.Get("/crawl/npmjs", func(c *fiber.Ctx) error {
-		url := "https://npmjs.com/"
+	app.Get("/crawl/chickin", func(c *fiber.Ctx) error {
+		url := "https://chickin.id/"
 		return crawlAndSaveHTML(c, url)
 	})
 
